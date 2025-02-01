@@ -1,22 +1,32 @@
-<!doctype html>
-<html lang="en">
+---
+interface Props {
+	title: string;
+	description: string;
+	pageType?:"website" | "article";
+	image: string
+	imageAlt: string
+}
+
+const head: Props = Astro.props;
+
+import Container from '../components/atoms/Container.astro';
+import BaseMeta from '../components/BaseMeta.astro';
+import Header from '../components/organisms/header.astro';
+import "../styles/global.css";
+---
+
+<!Doctype html>
+<html lang="ja">
 	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<BaseMeta {...head}/>
 	</head>
 	<body>
-		<slot />
+		<Header />
+		<Container>
+			<main>
+				<h1 class="text-3xl font-bold mb-4">aaaa</h1>
+				<slot />
+			</main>
+		</Container>
 	</body>
 </html>
-
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
