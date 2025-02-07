@@ -4,7 +4,7 @@ import ContentLayout from "../../layouts/ContentLayout.astro";
 
 
 // `news` コレクションから指定された `slug` の記事を取得
-const docEntry = await getCollection("news");
+const docEntry = await getCollection("docs");
 
 // 記事が存在しない場合は 404 ページを表示
 if (!docEntry) {
@@ -12,7 +12,7 @@ if (!docEntry) {
 }
 
 export async function getStaticPaths() {
-  const docsCollection = await getCollection("news");
+  const docsCollection = await getCollection("docs");
 
   return docsCollection.map((post) => ({
     params: { id: post.id }, props: { post },
@@ -32,8 +32,7 @@ const { Content } = await render(post);
   image= "/path/to/image.jpg",
   imageAlt= "Sample Image Alt Text"
 >
-  <p>News {post.data.number}</p>
-  <h1>{post.data.title}</h1>
+  <div class="markdown">
     <Content />
-    
+  </div>  
 </ContentLayout>

@@ -1,1 +1,29 @@
 @import "tailwindcss";
+
+.markdown p{
+    @apply  mb-4;
+}
+.markdown h1 {
+    @apply text-3xl font-bold mb-4;
+} 
+.markdown h2 {
+    @apply border-red-500 border-l-4 text-2xl mb-4;
+}
+.markdown h3 {
+    @apply text-xl font-bold mb-4;
+}
+.markdown h4 {
+    @apply text-lg font-bold mb-4;
+}
+.markdown ul {
+    @apply list-disc mb-4 pl-4;
+}
+.markdown ul li {
+    @apply my-0.5;
+}
+.markdown ul ul {
+    @apply list-[circle] mt-1 mb-1.5;
+}
+.markdown ol {
+    @apply list-decimal mb-4 pl-4;
+  }
