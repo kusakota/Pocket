@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-
+import Frame from '../components/atoms/frame.astro';
 interface Props {
   title: string;
   description: string;
@@ -20,4 +20,7 @@ const head: Props = {
 <Layout {...head}>
   <h1 class="text-3xl font-bold mb-4 ">aaaa</h1>
   <button class="bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-700">aaa</button>
+  <Frame>
+    Google Analytics とは、Google が開発・提供している、ウェブサイトのアクセス解析サービスです。Google Analytics では、 Cookie を使用しています。また、Google Analytics によるアクセス解析は、Google 社提供のオプトアウトツールを使用することで、これを拒否することができます。Cookie の使用可否については、ブラウザで設定することができます。詳細な設定方法については、お使いのブラウザベンダーにお問い合わせください。ただし、Cookie の保存拒否設定をされると、ログインが必要なサービスなど、委員会が提供する一部サービスがご利用いただけない場合があります。
+  </Frame>
 </Layout>

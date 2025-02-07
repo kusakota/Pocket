@@ -1,0 +1,39 @@
+---
+import { getCollection, render} from "astro:content";
+import ContentLayout from "../../layouts/ContentLayout.astro";
+
+
+// `news` コレクションから指定された `slug` の記事を取得
+const docEntry = await getCollection("news");
+
+// 記事が存在しない場合は 404 ページを表示
+if (!docEntry) {
+  throw new Error('News article not found');
+}
+
+export async function getStaticPaths() {
+  const docsCollection = await getCollection("news");
+
+  return docsCollection.map((post) => ({
+    params: { id: post.id }, props: { post },
+  }));
+}
+
+//propsの定義
+const { post } = Astro.props;
+
+//contentの読み込み
+const { Content } = await render(post);
+
+---
+<ContentLayout 
+  title= {post.data.title},
+  description="docs",
+  image= "/path/to/image.jpg",
+  imageAlt= "Sample Image Alt Text"
+>
+  <p>News {post.data.number}</p>
+  <h1>{post.data.title}</h1>
+    <Content />
+    
+</ContentLayout>

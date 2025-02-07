@@ -1,0 +1,30 @@
+---
+interface Props {
+	title: string;
+	description: string;
+	image: string
+	imageAlt: string
+}
+
+const head: Props = Astro.props;
+
+import Container from '../components/atoms/Container.astro';
+import BaseMeta from '../components/BaseMeta.astro';
+import Header from '../components/organisms/header.astro';
+
+---
+
+<!Doctype html>
+<html lang="ja">
+	<head>
+		<BaseMeta {...head} pageType="article"/>
+	</head>
+	<body>
+		<Header />
+		<article>
+            <Container>
+                <slot />
+            </Container>
+        </article>
+	</body>
+</html>
